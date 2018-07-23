@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Hello World!</h1>
+  {% if html_var2 %}
+    <p>welcome {{ html_var }}</p>
+  {% endif %}
+
+  {% for some_item in some_list %}
+    <p>{{some_item}}</p>
+  {% endfor %}
+  
+{% endblock content %}

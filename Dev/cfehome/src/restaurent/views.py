@@ -13,4 +13,12 @@ def home(request):
     "html_var2": True,
     "some_list": ['Test', 'Test2', 'Test3', 'Test4']
   }
-  return render(request, 'base.html', context) #respose
+  return render(request, 'home.html', context) #respose
+
+
+def about(request):
+  return render(request, 'about.html') #respose
+
+
+def contact(request):
+  return render(request, 'contact.html') #respose
