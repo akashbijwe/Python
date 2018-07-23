@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
 
 # Create your views here.
 #function base view
@@ -19,6 +20,7 @@ def home(request):
 def about(request):
   return render(request, 'about.html') #respose
 
-
-def contact(request):
-  return render(request, 'contact.html') #respose
+class ContactView(View):
+  def get(self, request, *args, **kwargs):
+    print(kwargs)
+    return render(request, 'contact.html') #respose
