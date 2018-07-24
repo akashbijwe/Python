@@ -1,7 +1,7 @@
 # Python
 
 <b>Section: 1
-5 / 5
+
 Welcome to Try Django 1.11</b><br>
 1. Welcome to Try Django 1.11
 3:53
@@ -33,7 +33,7 @@ HTML & Django
 13. Template View
 7:29<br>
 <b>Section: 3
-0 / 8
+
 Remembering Things</b>
 14. Remembering things with Models
 11:03
@@ -52,7 +52,7 @@ Remembering Things</b>
 21. Signal for Unique Slug
 6:37<br>
 <b>Section: 4
-0 / 19
+
 Forms, Views, Models, and More</b>
 22. Slugs as URL Params
 2:22
@@ -93,7 +93,7 @@ Forms, Views, Models, and More</b>
 40. Adding a Robust Search
 21:30<br>
 <b>Section: 5
-0 / 5
+
 Handling Users & Followers</b>
 41. Follow Users
 19:59
@@ -106,7 +106,7 @@ Handling Users & Followers</b>
 45. Activation Keys
 15:34<br>
 <b>Section: 6
-0 / 2
+
 Final Steps...</b>
 46. Watch & Go Live
 1:35
