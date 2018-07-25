@@ -5,18 +5,16 @@
 {% endblock head_title %}
 
 {% block content %}
-<h1> Restaurent List</h1>
-{% for item in object_list %}
-  <div>
-    Name: {{item.name}} <br>
-    Location: {{item.location}} <br>
-    Category: {{item.category}} <br>
-    Timestamp: {{item.timestamp}} <br>
-    Updated: {{item.updated}} <br><br>
-  </div>
-{% endfor %}
-
-
+  <h1> Restaurent List</h1>
+  {% for item in object_list %}
+    <div>
+      Name: {{item.name}} <br>
+      Location: {{item.location}} <br>
+      Category: {{item.category}} <br>
+      Timestamp: {{item.timestamp}} <br>
+      Updated: {{item.updated}} <br><br>
+    </div>
+  {% endfor %}
 
 {% endblock content %}
 

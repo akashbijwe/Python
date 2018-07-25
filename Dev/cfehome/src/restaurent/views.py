@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import RestaurentLocation
 
@@ -17,13 +17,13 @@ from .models import RestaurentLocation
 #     print(kwargs)
 #     return render(request, 'contact.html') #respose
 
-# def home(request):
-#   context = {
-#     "html_var": "Test HTML TEXT from views.py",
-#     "html_var2": True,
-#     "some_list": ['Test', 'Test2', 'Test3', 'Test4']
-#   }
-#   return render(request, 'home.html', context) #respose
+def home(request):
+  context = {
+    "html_var": "Test HTML TEXT from views.py",
+    "html_var2": True,
+    "some_list": ['Test', 'Test2', 'Test3', 'Test4']
+  }
+  return render(request, 'home.html', context) #respose
 
 
 # def about(request):
@@ -42,6 +42,7 @@ from .models import RestaurentLocation
 #     print(context)
 #     return context
 
+#Template View
 def restaurent_listview(request):
   template_name = 'restaurent/restaurents_list.html'
   queryset  = RestaurentLocation.objects.all()
@@ -49,3 +50,46 @@ def restaurent_listview(request):
     "object_list": queryset
   }
   return render(request, template_name, context)
+
+
+#List View
+class RestaurentListView(ListView):
+  queryset = RestaurentLocation.objects.all()
+  template_name = 'restaurent/restaurents_list.html'
+  
+  
+# class NonVegRestaurentListView(ListView):
+#   queryset = RestaurentLocation.objects.filter(category__iexact='non-veg')
+#   template_name = 'restaurent/restaurents_list.html'
+
+# class VegRestaurentListView(ListView):
+#   queryset = RestaurentLocation.objects.filter(category__iexact='veg')
+#   template_name = 'restaurent/restaurents_list.html'
+
+class SearchRestaurentListView(ListView):
+  template_name = 'restaurent/restaurents_list.html'
+  def get_queryset(self):
+    print(self.kwargs)
+    slug = self.kwargs.get("slug")
+    if slug:
+      queryset = RestaurentLocation.objects.filter(category__iexact=slug)
+    else:
+      queryset = RestaurentLocation.objects.all()
+    return queryset
+
+
+class RestaurentDetailView(DetailView):
+  queryset = RestaurentLocation.objects.all()
+  
+  # def get_context_data(self, *args, **kwargs):
+  #   print(self.kwargs)
+  #   context = super(RestaurentDetailView, self).get_context_data(*args, **kwargs)
+  #   print(context)
+  #   return context
+
+  def get_object(self, *args, **kwargs):
+    rest_id = self.kwargs.get('rest_id')
+    obj = get_object_or_404(RestaurentLocation, id=rest_id)
+    return obj
+
+
