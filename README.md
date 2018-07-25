@@ -5,7 +5,7 @@
 2. Walkthrough - 3:51 <br>
 3. Getting Started with Django - 24:08 <br>
 4. For your Reference - 2:36 <br>
-5. What Django Does - 10:35 <br>
+5. What Django Does - 10:35
 <br><br>
 <b>Section: 2 - HTML & Django</b><br>
 6. Rendering HTML - 4:44 <br>
@@ -15,7 +15,7 @@
 10. Include Template Tag - 6:04 <br>
 11. Reactivate Virtualenv - 1:10 <br>
 12. Class Based Views - 8:26 <br>
-13. Template View - 7:29 <br>
+13. Template View - 7:29 
 <br><br>
 <b>Section: 3 - Remembering Things</b><br>
 14. Remembering things with Models - 11:03 <br>
@@ -25,7 +25,7 @@
 18. Generic List View - 8:58 <br>
 19. Restaurant Profile Detail - 10:15 <br>
 20. SlugField & Unique Slug Generator - 7:01 <br>
-21. Signal for Unique Slug - 6:37<br>
+21. Signal for Unique Slug - 6:37
 
 <br><br>
 <b>Section: 4 - Forms, Views, Models, and More</b><br>
@@ -47,7 +47,7 @@
 37. Personalize Items - 17:50 <br>
 38. User Profile View - 14:13 <br>
 39. Style Profile with Bootstrap - 4:01 <br>
-40. Adding a Robust Search - 21:30 <br>
+40. Adding a Robust Search - 21:30
 <br><br>
 
 <b>Section: 5
@@ -56,7 +56,7 @@ Handling Users & Followers</b><br>
 42. Follow Button Form - 19:22 <br>
 43. Following Home Page Feed - 15:14 <br>
 44. Register View - 18:36 <br>
-45. Activation Keys - 15:34 <br>
+45. Activation Keys - 15:34
 <br><br>
 
 <b>Section: 6 - Final Steps...</b><br>
