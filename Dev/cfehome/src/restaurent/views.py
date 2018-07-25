@@ -43,7 +43,7 @@ def home(request):
 #     return context
 
 #Template View
-def restaurent_listview(request):
+def RestaurentListView(request):
   template_name = 'restaurent/restaurents_list.html'
   queryset  = RestaurentLocation.objects.all()
   context = {
@@ -53,9 +53,9 @@ def restaurent_listview(request):
 
 
 #List View
-class RestaurentListView(ListView):
-  queryset = RestaurentLocation.objects.all()
-  template_name = 'restaurent/restaurents_list.html'
+# class RestaurentListView(ListView):
+#   queryset = RestaurentLocation.objects.all()
+#   template_name = 'restaurent/restaurents_list.html'
   
   
 # class NonVegRestaurentListView(ListView):
@@ -66,21 +66,25 @@ class RestaurentListView(ListView):
 #   queryset = RestaurentLocation.objects.filter(category__iexact='veg')
 #   template_name = 'restaurent/restaurents_list.html'
 
-class SearchRestaurentListView(ListView):
-  template_name = 'restaurent/restaurents_list.html'
-  def get_queryset(self):
-    print(self.kwargs)
-    slug = self.kwargs.get("slug")
-    if slug:
-      queryset = RestaurentLocation.objects.filter(category__iexact=slug)
-    else:
-      queryset = RestaurentLocation.objects.all()
-    return queryset
+# class SearchRestaurentListView(ListView):
+#   template_name = 'restaurent/restaurents_list.html'
+#   def get_queryset(self):
+#     print(self.kwargs)
+#     slug = self.kwargs.get("slug")
+#     if slug:
+#       queryset = RestaurentLocation.objects.filter(category__iexact=slug)
+#     else:
+#       queryset = RestaurentLocation.objects.all()
+#     return queryset
 
+def RestaurentDetailView(request, slug):
+  obj = RestaurentLocation.objects.get(slug=slug)
+  template_name = 'restaurent/restaurentlocation_detail.html'
+  context = {
+    "object": obj
+  }
+  return render(request, template_name, context)
 
-class RestaurentDetailView(DetailView):
-  queryset = RestaurentLocation.objects.all()
-  
   # def get_context_data(self, *args, **kwargs):
   #   print(self.kwargs)
   #   context = super(RestaurentDetailView, self).get_context_data(*args, **kwargs)
