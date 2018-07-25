@@ -8,7 +8,9 @@
   <h1> Restaurent List</h1>
   {% for item in object_list %}
     <div>
-      Name: {{item.name}} <br>
+      <a href='/restaurent/{{ item.slug }}/'>
+        Name: {{item.name}}
+      </a> <br>
       Location: {{item.location}} <br>
       Category: {{item.category}} <br>
       Timestamp: {{item.timestamp}} <br>
@@ -17,4 +19,3 @@
   {% endfor %}
 
 {% endblock content %}
-
