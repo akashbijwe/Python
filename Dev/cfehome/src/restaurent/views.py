@@ -1,10 +1,12 @@
-from django.http import HttpResponse
+from django.db.models import Q
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView
 
-from .models import RestaurentLocation
 from .forms import RestaurentCreateForm
+from .models import RestaurentLocation
+
 
 # Create your views here.
 #function base view
@@ -86,10 +88,25 @@ def RestaurentDetailView(request, slug):
   }
   return render(request, template_name, context)
 
-def RestaurentCreateForm(request):
+def RestaurentCreateFormView(request):
+  form = RestaurentCreateForm(request.POST or None)
+  errors = None  
+  if form.is_valid():
+    obj = RestaurentLocation.objects.create(
+      name = form.cleaned_data.get('name'),
+      location = form.cleaned_data.get('location'),
+      category = form.cleaned_data.get('category')
+    )
+    return HttpResponseRedirect('/restaurent/') 
+  if form.errors:
+    errors = form.errors
+
   template_name = 'restaurent/restaurectlocation_create.html'
-  context = {}
-  print(request.POST)
+  context = {
+    "form": form,
+    "errors": errors
+  }
+ 
   return render(request, template_name, context)
 
   # def get_context_data(self, *args, **kwargs):

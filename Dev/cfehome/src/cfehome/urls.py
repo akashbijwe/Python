@@ -19,7 +19,7 @@ from django.views.generic import TemplateView
 from restaurent.views import (
     RestaurentListView,
     RestaurentDetailView,
-    RestaurentCreateForm
+    RestaurentCreateFormView
 )
 
 urlpatterns = [
@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html')),
     url(r'^home/$', TemplateView.as_view(template_name='home.html')),
     url(r'^restaurent/$', RestaurentListView),
-    url(r'^restaurent/create$', RestaurentCreateForm),
+    url(r'^restaurent/create$', RestaurentCreateFormView),
     url(r'^restaurent/(?P<slug>[\w-]+)/$', RestaurentDetailView),
     url(r'^contact/(?P<id>\d+)/$', TemplateView.as_view(template_name='contact.html')),
     url(r'^about/$', TemplateView.as_view(template_name='about.html'))
