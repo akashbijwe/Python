@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+  Restaurents Create || {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<h1> Create:</h1>
+<div class="container">
+  <form method="POST"> {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" name="location" id="location" placeholder="Enter location">
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" class="form-control" name="category" id="category" placeholder="Enter category">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock content %}

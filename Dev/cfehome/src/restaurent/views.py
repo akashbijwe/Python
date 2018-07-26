@@ -4,6 +4,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import RestaurentLocation
+from .forms import RestaurentCreateForm
 
 # Create your views here.
 #function base view
@@ -83,6 +84,12 @@ def RestaurentDetailView(request, slug):
   context = {
     "object": obj
   }
+  return render(request, template_name, context)
+
+def RestaurentCreateForm(request):
+  template_name = 'restaurent/restaurectlocation_create.html'
+  context = {}
+  print(request.POST)
   return render(request, template_name, context)
 
   # def get_context_data(self, *args, **kwargs):
