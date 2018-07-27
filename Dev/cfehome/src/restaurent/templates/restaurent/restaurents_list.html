@@ -6,6 +6,7 @@
 
 {% block content %}
   <h1> Restaurent List</h1>
+  <p><a href="/restaurent/create" class="btn btn-primary">Create New </a></p>
   {% for item in object_list %}
     <div>
       <a href='/restaurent/{{ item.slug }}/'>

@@ -1,9 +1,12 @@
+from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
 from .utils import unique_slug_generator
+User = settings.AUTH_USER_MODEL
 # Create your models here.
 class RestaurentLocation(models.Model):
+  owner      = models.ForeignKey(User)
   name       = models.CharField(max_length=120)
   location   = models.CharField(max_length=120, null=True, blank=True)
   category   = models.CharField(max_length=120, null=True, blank=True)
